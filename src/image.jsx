@@ -1,6 +1,6 @@
 import React from 'react'
 
-const image = (url, alt, width=200, height=200) => {
+const image = (url, alt, scheme) => {
     const tag = 'img';
 
     return React.createElement(
@@ -8,8 +8,12 @@ const image = (url, alt, width=200, height=200) => {
         {
             src: url,
             alt: alt,
-            width: width,
-            height: height
+            fontFamily: scheme[4],
+            border: scheme[3],
+            borderRadius: scheme[5],
+            borderColor: colorStyle,
+            ...colorStyle,
+            ...bgColorStyle,
         }
     );
 }
