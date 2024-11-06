@@ -8,12 +8,14 @@ const image = (url, alt, scheme) => {
         {
             src: url,
             alt: alt,
-            fontFamily: scheme[4],
-            border: scheme[3],
-            borderRadius: scheme[5],
-            borderColor: colorStyle,
-            ...colorStyle,
-            ...bgColorStyle,
+            style: {
+                fontFamily: scheme[4],
+                border: scheme[3],
+                borderRadius: scheme[5],
+                borderColor: colorStyle,
+                ...colorStyle,
+                ...bgColorStyle
+            }
         }
     );
 }

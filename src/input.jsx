@@ -1,11 +1,15 @@
 import React from 'react';
 
-const title = (text, scheme) => {
-    const tag = 'title';
+const button = (text, event, scheme) => {
+    const tag = 'button';
 
+    const colorStyle   = scheme[2].includes('gradient') ? { background: color }   : { color: color };
+    const bgColorStyle = scheme[0].includes('gradient') ? { background: bgColor } : { backgroundColor: bgColor };
+    
     return React.createElement(
         tag,
         {
+            onClick: event,
             style: {
                 fontFamily: scheme[4],
                 border: scheme[3],
@@ -19,15 +23,18 @@ const title = (text, scheme) => {
     );
 }
 
-const header = (level, text, scheme) => {
-    const tag = `h${ Math.min(Math.max(level, 1), 6) }`;
-    
+const text = (placeholder, onChange, scheme) => {
+    const tag = 'input';
+
     const colorStyle   = scheme[2].includes('gradient') ? { background: color }   : { color: color };
     const bgColorStyle = scheme[0].includes('gradient') ? { background: bgColor } : { backgroundColor: bgColor };
     
     return React.createElement(
         tag,
         {
+            type: "text",
+            placeholder: placeholder,
+            onChange: onChange,
             style: {
                 fontFamily: scheme[4],
                 border: scheme[3],
@@ -37,19 +44,21 @@ const header = (level, text, scheme) => {
                 ...bgColorStyle
             }
         },
-        text
     );
 }
 
-const paragraph = (text, scheme) => {
-    const tag = 'p';
-    
+const checkbox = (text, checked, onChange, scheme) => {
+    const tag = 'input';
+
     const colorStyle   = scheme[2].includes('gradient') ? { background: color }   : { color: color };
     const bgColorStyle = scheme[0].includes('gradient') ? { background: bgColor } : { backgroundColor: bgColor };
-
+    
     return React.createElement(
         tag,
         {
+            type: "checkbox",
+            checked: checked,
+            onChange: onChange,
             style: {
                 fontFamily: scheme[4],
                 border: scheme[3],
