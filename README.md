@@ -5,3 +5,4 @@ Current blocks:
  * headers
  * text
  * images
+ * user input
